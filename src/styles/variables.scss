@@ -1,0 +1,16 @@
+:root {
+  --bottom-fixed-height: 112px; //--width-primary  ：变量名，css3有规则
+}
+// 主题色
+$mainColor: #477fe3;
+$successColor: #67c23a;
+$warnColor: #e6a23c;
+$dangerColor: #f56c6c;
+$fontColor: #333;
+
+$navHeight: 60px;
+$sidebarWidth: 180px;
+$sidebarSmallWidth: 50px;
+$containerPadding: 20px;
+
+$bottomFixedHeight: var(--bottom-fixed-height); //用var来盛放变量名
