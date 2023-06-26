@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
   import { reactive, computed } from 'vue'
-  import { userType } from '@/views/layout/types'
+  import { userType } from '@/layout/types'
   import BreadCrumb from './BreadCrumb.vue'
   import SvgIcon from '@/components/SvgIcon/index.vue'
   import { useUserStoreHook } from '@/store/modules/user'

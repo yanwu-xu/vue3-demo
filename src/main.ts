@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import ElementPlus from 'element-plus'
 import App from './App.vue'
 
 import { usePermissionStoreHook } from '@/store/modules/permission'
@@ -7,16 +6,18 @@ import { isLogin, login } from '@/utils/login'
 import router, { setupRouter } from '@/router'
 import { setupStore } from '@/store'
 import { setupSvg } from '@/assets/icons'
+import { setupElementPlus } from '@/components/element-plus'
 
 import '@/styles/index.scss'
-import 'element-plus/dist/index.css'
 
 const init = async () => {
   const app = createApp(App)
-  app.use(ElementPlus)
 
   // 加载菜单权限
   const routes = await usePermissionStoreHook().generateRoutes()
+
+  // 注册element
+  setupElementPlus(app)
 
   // 注册svg
   setupSvg(app)

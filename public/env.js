@@ -11,7 +11,9 @@ var env = {
   clientId: 'J8Kq169h56tm',
   clientSecret: 'dd1492ee1c6e2c0cc72f963134534375',
   // 请求服务名
-  prefix: '/api/ica',
-  // 用户中心服务
-  userCenter: 'user-center-optimization'
+  api: {
+    ica: '/api/ica',
+    // 用户中心服务
+    userCenter: '/api/user-center-optimization',
+  },
 }

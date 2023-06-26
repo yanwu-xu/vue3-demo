@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-  import { h, reactive, computed, onMounted, defineComponent, getCurrentInstance } from 'vue'
+  import { reactive, computed } from 'vue'
   import { Navbar, Sidebar, AppMain } from './components'
   import { useAppStoreHook } from '@/store/modules/app'
   import { setType } from './types'

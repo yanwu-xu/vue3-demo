@@ -1,10 +1,10 @@
 import { http } from '@/utils/http'
 
-const PREFIX = (window as any).env.userCenter
+const PREFIX = (window as any).env.api.userCenter
 
 export function getUserInfo() {
   const params = {
     category: 'handle',
   }
-  return http.request('get', `/api/${PREFIX}/user/front/info`, { params })
+  return http.request('get', `${PREFIX}/user/front/info`, { params })
 }
