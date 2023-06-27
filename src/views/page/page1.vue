@@ -2,14 +2,14 @@
   <div>
     <div
       :style="{
-        color: props.fontColor,
+        color: fontColor,
       }"
     >
       {{ count }}--{{ aaa.ddd }}
     </div>
     <div
       :style="{
-        color: props.fontColor,
+        color: fontColor,
       }"
     >
       {{ doubleCount }}
@@ -20,8 +20,14 @@
   </div>
 </template>
 
-<script setup>
-  import { ref, computed, onMounted, reactive, watch, watchEffect } from 'vue'
+<script setup lang="ts">
+  defineOptions({
+    name: 'page1',
+    // 不让子组件的跟节点渲染属性
+    inheritAttrs: false,
+  })
+
+  import { ref, computed, onMounted, reactive, watch, watchEffect, toRefs } from 'vue'
   import xButton from './xButton.vue'
 
   const xbtn = ref(null)
@@ -36,6 +42,8 @@
       default: 'red',
     },
   })
+
+  const { fontColor } = toRefs(props)
 
   const emit = defineEmits(['updateCount'])
 

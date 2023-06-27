@@ -9,7 +9,7 @@ Object.keys(all).forEach(key => {
 })
 
 export function setupSvg(app: App<Element>) {
-  for (const [key, component] of Object.entries(icons)) {
-    app.component(key, component as any)
+  for (const [key, svg] of Object.entries(icons)) {
+    app.component(key, svg as any)
   }
 }

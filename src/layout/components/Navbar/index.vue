@@ -150,7 +150,7 @@
       width: 180px;
       height: $navHeight;
       background-color: rgba(71, 127, 227, 1);
-      ::v-deep(svg) {
+      :deep(svg) {
         display: block;
         position: absolute;
         top: 0;
@@ -168,7 +168,7 @@
     }
   }
 
-  .top-bar-menu ::v-deep() {
+  .top-bar-menu {
     padding: 0;
   }
 </style>

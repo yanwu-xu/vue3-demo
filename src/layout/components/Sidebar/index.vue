@@ -24,11 +24,10 @@
 </template>
 
 <script setup lang="ts">
-  import { reactive, computed, onMounted, defineComponent, getCurrentInstance } from 'vue'
+  import { reactive, computed } from 'vue'
   import { usePermissionStoreHook } from '@/store/modules/permission'
   import { useAppStoreHook } from '@/store/modules/app'
   import SidebarItem from './SidebarItem.vue'
-  import SvgIcon from '@/components/SvgIcon/index.vue'
 
   const set = reactive({
     sidebarOpened: computed(() => {

@@ -5,6 +5,7 @@ import { usePermissionStoreHook } from '@/store/modules/permission'
 import { isLogin, login } from '@/utils/login'
 import router, { setupRouter } from '@/router'
 import { setupStore } from '@/store'
+import { setupComponents } from '@/components'
 import { setupSvg } from '@/assets/icons'
 import { setupElementPlus } from '@/components/element-plus'
 
@@ -18,6 +19,9 @@ const init = async () => {
 
   // 注册element
   setupElementPlus(app)
+
+  // 注册全局自定义组件
+  setupComponents(app)
 
   // 注册svg
   setupSvg(app)

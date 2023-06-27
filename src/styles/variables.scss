@@ -1,11 +1,18 @@
-:root {
-  --bottom-fixed-height: 112px; //--width-primary  ：变量名，css3有规则
-}
 // 主题色
-$mainColor: #477fe3;
+$mainColor: var(--main-color, #477fe3);
+$mainColor-light1: var(--main-color-light1, #477fe311);
+$mainColor-light2: var(--main-color-light2, #477fe322);
+$mainColor-light3: var(--main-color-light3, #477fe333);
+$mainColor-light4: var(--main-color-light4, #477fe344);
+$mainColor-light5: var(--main-color-light5, #477fe355);
+$mainColor-light6: var(--main-color-light6, #477fe366);
+$mainColor-light7: var(--main-color-light7, #477fe377);
+$mainColor-light8: var(--main-color-light8, #477fe388);
+$mainColor-light9: var(--main-color-light9, #477fe399);
+
 $successColor: #67c23a;
 $warnColor: #e6a23c;
-$dangerColor: #f56c6c;
+$dangerColor: #eb5959;
 $fontColor: #333;
 
 $navHeight: 60px;
@@ -13,4 +20,4 @@ $sidebarWidth: 180px;
 $sidebarSmallWidth: 50px;
 $containerPadding: 20px;
 
-$bottomFixedHeight: var(--bottom-fixed-height); //用var来盛放变量名
+$bottomFixedHeight: var(--bottom-fixed-height, 112px); //用var来盛放变量名
