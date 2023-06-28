@@ -39,8 +39,7 @@
     ],
     // 加载的声明文件包
     "types": [
-      "vite/client",
-      "unplugin-vue-define-options/macros-global"
+      "vite/client"
     ],
     // 声明文件目录，默认时node_modules/@types
     "typeRoots": [

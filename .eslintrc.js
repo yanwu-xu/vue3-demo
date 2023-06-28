@@ -97,7 +97,5 @@ module.exports = defineConfig({
       },
     ],
   },
-  // globals: {
-  //   defineOptions: 'writable'
-  // }
+  globals: {},
 })
