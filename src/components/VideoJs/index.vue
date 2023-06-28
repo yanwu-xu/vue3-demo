@@ -9,12 +9,11 @@
   </video>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="Videojs">
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 import { ref, reactive, useAttrs, onMounted, onBeforeUnmount } from 'vue'
 
-defineOptions({ name: 'Videojs' })
 const attrs = useAttrs()
 const props = defineProps({
   keyId: {
