@@ -3,8 +3,8 @@ import svgLoader from 'vite-svg-loader'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import WindiCSS from 'vite-plugin-windicss'
 import { viteMockServe } from 'vite-plugin-mock'
-import DefineOptions from 'unplugin-vue-define-options/vite'
 import liveReload from 'vite-plugin-live-reload'
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import ElementPlus from 'unplugin-element-plus/vite'
 import removeConsole from 'vite-plugin-remove-console'
 
@@ -12,7 +12,7 @@ export function getPluginsList(command) {
   const prodMock = true
   return [
     vue(),
-    DefineOptions(),
+    VueSetupExtend(),
     // jsx、tsx语法支持
     vueJsx(),
     WindiCSS(),

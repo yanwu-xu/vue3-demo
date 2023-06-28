@@ -20,14 +20,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
-  defineOptions({
-    name: 'page1',
-    // 不让子组件的跟节点渲染属性
-    inheritAttrs: false,
-  })
-
-  import { ref, computed, onMounted, reactive, watch, watchEffect, toRefs } from 'vue'
+<script setup lang="ts" name="page1">
+  import { ref, computed, onMounted, reactive, watch, toRefs } from 'vue'
   import xButton from './xButton.vue'
 
   const xbtn = ref(null)
@@ -58,10 +52,12 @@
     return count.value * 2
   })
 
-  const aaa = reactive({ bbb: [0], ccc: 0 })
+  const aaa = reactive({ bbb: [0], ccc: 0, ddd: '' })
   watch(
     () => aaa.ccc,
-    (old, new1) => {},
+    (old, new1) => {
+      console.log(111, old, new1)
+    },
     { deep: true }
   )
 
