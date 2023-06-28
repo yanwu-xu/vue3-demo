@@ -17,6 +17,10 @@
     <xButton ref="xbtn" @click1="handleAdd" color="blue">加1</xButton>
 
     <el-text class="mx-1" type="primary">Default</el-text>
+
+    <div class="video">
+      <VideoJs />
+    </div>
   </div>
 </template>
 
@@ -71,3 +75,10 @@
     aaa.ddd = 'dddd'
   }, 2000)
 </script>
+
+<style lang="scss" scoped>
+.video {
+  width: 640px;
+  height: 360px;
+}
+</style>
