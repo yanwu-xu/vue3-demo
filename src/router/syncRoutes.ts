@@ -6,9 +6,9 @@ const routes: Array<RouteRecordRaw> = [
     path: '',
     name: 'root',
     meta: {
-      title: 'root',
+      title: 'root'
     },
-    redirect: '/main/auth',
+    redirect: '/main/auth'
   },
   {
     path: '/main',
@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Layout,
     redirect: '/main/auth',
     meta: {
-      title: 'main',
+      title: 'main'
     },
     children: [
       {
@@ -24,11 +24,11 @@ const routes: Array<RouteRecordRaw> = [
         name: 'auth',
         component: () => import('@/views/page/page1.vue'),
         meta: {
-          title: '权限判断',
-        },
-      },
-    ],
-  },
+          title: '权限判断'
+        }
+      }
+    ]
+  }
 ]
 
 export default routes

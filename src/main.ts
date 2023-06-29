@@ -29,20 +29,19 @@ const init = async () => {
   // 挂载状态管理
   setupStore(app)
 
+  // 挂载异步路由 addRoute 接受 一个路由对象 而不是一个路由数组
+  routes.forEach(item => router.addRoute(item))
+
   // 挂载路由
   await setupRouter(app)
 
-  // 挂载异步路由
-  router.addRoute(routes)
-
   // 路由准备就绪后挂载APP实例
   await router.isReady()
-
   app.mount('#app')
 }
 
 if (isLogin()) {
   init()
 } else {
-  ;(login() as any).then(() => init())
+  ; (login() as any).then(() => init())
 }

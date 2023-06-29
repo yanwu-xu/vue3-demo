@@ -7,11 +7,12 @@ import { useUserStoreHook } from '@/store/modules/user'
 
 // 判断是否有权限
 function hasPermission(roles, route) {
-  return roles.find(role => route.name === role.code)
+  // return roles.find(role => route.name === role.code)
+  return true
 }
 
 function filterAsyncRouter(routes, roles) {
-  if (!roles || !roles.length) return []
+  // if (!roles || !roles.length) return []
 
   const result = routes.filter(route => {
     const role = hasPermission(roles, route)
