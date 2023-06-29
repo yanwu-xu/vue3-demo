@@ -43,6 +43,7 @@
       return !(set.sidebarOpened || set.fullMain)
     }),
   })
+  
 
   function toggleSideBar() {
     useAppStoreHook().toggleSideBar()

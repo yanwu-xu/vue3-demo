@@ -11,6 +11,7 @@ import {
   ElScrollbar,
   ElSubMenu,
   ElButton,
+  ElButtonGroup,
   ElCol,
   ElRow,
   ElSpace,
@@ -48,9 +49,15 @@ import {
   ElCollapseItem,
   ElTreeV2,
   ElText,
+  ElSelect,
+  ElOption,
+  ElDatePicker,
+  ElCascader,
+  ElTable,
+  ElTableColumn,
   // 指令
   ElLoading,
-  ElInfiniteScroll,
+  ElInfiniteScroll
 } from 'element-plus'
 
 // Directives
@@ -65,6 +72,7 @@ const components = [
   ElScrollbar,
   ElSubMenu,
   ElButton,
+  ElButtonGroup,
   ElCol,
   ElRow,
   ElSpace,
@@ -102,6 +110,12 @@ const components = [
   ElCollapseItem,
   ElTreeV2,
   ElText,
+  ElSelect,
+  ElOption,
+  ElDatePicker,
+  ElCascader,
+  ElTable,
+  ElTableColumn
 ]
 
 export function setupElementPlus(app: App) {

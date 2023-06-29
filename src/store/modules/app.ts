@@ -6,7 +6,7 @@ import Cookies from 'js-cookie'
 export const useAppStore = defineStore({
   id: 'pure-app',
   state: (): appType => ({
-    sidebarOpened: true,
+    sidebarOpened: false,
     fullMain: false,
     lang: 'zh_CN',
     hasI18n: false,
