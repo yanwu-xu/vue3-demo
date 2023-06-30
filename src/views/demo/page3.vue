@@ -7,7 +7,6 @@ const imgUrl = ref('https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cd
 <template>
   <page>
     <div style="height: 1000px;border: 1px solid red;"></div>
-    <el-button @click="updateImageUrl">更新图片</el-button>
     <div>
       <img v-lazy="imgUrl" alt="" />
     </div>
