@@ -11,6 +11,7 @@
 
 <script setup lang="ts" name="Videojs">
 import videojs from 'video.js'
+import type Player from 'video.js/dist/types/player'
 import 'video.js/dist/video-js.css'
 import { ref, reactive, useAttrs, onMounted, onBeforeUnmount } from 'vue'
 
@@ -30,6 +31,9 @@ const props = defineProps({
     default: () => { }
   }
 })
+const emit = defineEmits<{
+  (event: 'callback', player: Player): void
+}>()
 
 let player = ref(null)
 let videoPlayer = ref(null)
@@ -65,9 +69,9 @@ const initVideoPlayer = (): void => {
       const callback = function (that) {
         that.play()
       }
-      callback(this)
+      callback(that)
     } else {
-      this.$emit('callback', player)
+      emit('callback', player)
     }
   })
 }
