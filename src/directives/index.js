@@ -9,7 +9,6 @@ const directivesCb = (app, directives = {}) => {
     if (Object.prototype.hasOwnProperty.call(requireDirective, path)) {
       const module = requireDirective[path]
       // 处理导入的模块
-      // console.log(module)
       const name = module.default.name ?? path.replace(/\.\/(.*)\/.*\.js/, '$1')
       if (!_directives?.[name]) {
         _directives[name] = module.default || module

@@ -436,7 +436,7 @@ watchEffect(() => {
 })
 ```
 
-##### 8. LifeCycle Hooks
+##### 8. LifeCycle Hooks (生命周期)
 
 ```js
 import { onMounted } from '@vue/composition-api'
@@ -542,12 +542,12 @@ vue2: v-model是:value和@input的语法糖
 <input v-model="value">
 <!-- 等同于 -->
 <input :value="value" @input="val => value = val">
-````
+​````
 
 vue3: 支持多个v-model，v-model 是 v-model:modelValue 的简写
 绑定其他字段，如：v-model:name
 
-```html
+​```html
 <!-- 父组件 -->
 <template>
   <child
@@ -576,11 +576,113 @@ vue3: 支持多个v-model，v-model 是 v-model:modelValue 的简写
 
 <script setup>
   // defineEmits和defineProps在<script setup>中自动可用，无需导入
-  defineProps({
+  const props = defineProps({
     modelValue: String,
     age: Number
   })
 
+  // 1. emit 正常用法
   const emit = defineEmits(['update:modelValue', 'update:age'])
+  
+  // 2. vue 3.3+ 另一种语法
+  // const emit = defineEmits<{
+    // change: [id: number] // 具名元组语法
+    // update: [value: string]
+  // }>()
 </script>
 ```
+
+11. #####  vue文件中访问插槽
+
+```html
+<!-- 在 Vue 2 中，可以通过 $slots 来访问插槽内容 -->
+<template>
+  <div>
+    <slot name="header"></slot>
+    <slot></slot>
+    <slot name="footer"></slot>
+  </div>
+</template>
+
+<!-- 被插槽组件内部 -->
+<script>
+export default {
+  mounted() {
+    console.log(this.$slots.header); // 访问具名插槽 header 的内容
+    console.log(this.$slots.default); // 访问默认插槽的内容
+    console.log(this.$slots.footer); // 访问具名插槽 footer 的内容
+  }
+}
+</script>
+
+<!-- 被插槽组件内部 -->
+<!-- 在 Vue 3 中，可以通过 useSlots api 来访问插槽内容 -->
+<script setup lang="ts" name="Page">
+    import { useSlots } from 'vue'
+    const slots = useSlots()
+    
+    console.log(slots.header); // 访问具名插槽 header 的内容
+    console.log(slots.default); // 访问默认插槽的内容
+    console.log(slots.footer); // 访问具名插槽 footer 的内容
+</script>
+```
+
+##### 12. vue-router 创建
+
+```typescript
+import { Router, createRouter, createWebHistory } from 'vue-router'
+import asyncRoutesMap from '@/router/asyncRoutes'
+import syncRoutesMap from '@/router/syncRoutes'
+
+// 创建 router 使用 createRouter
+// 路由模式 使用  createWebHistory(history) 或者 createWebHashHistory(hash)
+const router: Router = createRouter({
+  history: createWebHistory(),
+  routes: syncRoutesMap,
+  strict: true,
+  scrollBehavior(_, from, savedPosition) {
+    return new Promise(resolve => {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        if (from.meta.saveSrollTop) {
+          const top: number = document.documentElement.scrollTop || document.body.scrollTop
+          resolve({ left: 0, top })
+        }
+      }
+    })
+  },
+})
+
+export { asyncRoutesMap, syncRoutesMap }
+
+export default router
+```
+
+13. ##### vue-router 在vue文件中使用
+
+```html
+<template>
+  <el-button @click="consoleQuery" type="primary">console 当前路由参数</el-button>
+  <el-button @click="goBack" type="primary">返回</el-button>
+</template>
+
+<script setup lang="ts">
+    // setup 语法糖模式下，无法通过 this.$router 进行路由跳转等
+    // useRoute(): RouteLocationNormalizedLoaded 返回当前的路由地址。相当于在模板中使用 $route。
+    // useRouter(): Router 返回路由器实例。相当于在模板中使用 $router。
+    import { useRoute, useRouter } from 'vue-router'
+
+    const route = useRoute()
+    const router = useRouter()
+
+    const consoleQuery = (): void => {
+        // console.log(route.params.value)
+        console.log(route.query.value)
+    }
+    const goBack = (): void => {
+        router.push('/')
+    }
+</script>
+```
+
