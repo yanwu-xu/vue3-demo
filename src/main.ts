@@ -8,11 +8,16 @@ import { setupStore } from '@/store'
 import { setupComponents } from '@/components'
 import { setupSvg } from '@/assets/icons'
 import { setupElementPlus } from '@/components/element-plus'
+import { directivesCb } from '@/directives'
 
 import '@/styles/index.scss'
 
 const init = async () => {
   const app = createApp(App)
+
+  if (!window.__POWERED_BY_QIANKUN__) {
+    directivesCb(app)
+  }
 
   // 加载菜单权限
   const routes = await usePermissionStoreHook().generateRoutes()
