@@ -55,6 +55,7 @@ import {
   ElCascader,
   ElTable,
   ElTableColumn,
+  ElCheckbox,
   // 指令
   ElLoading,
   ElInfiniteScroll
@@ -115,7 +116,8 @@ const components = [
   ElDatePicker,
   ElCascader,
   ElTable,
-  ElTableColumn
+  ElTableColumn,
+  ElCheckbox
 ]
 
 export function setupElementPlus(app: App) {
