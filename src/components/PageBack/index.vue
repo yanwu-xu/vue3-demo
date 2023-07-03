@@ -8,49 +8,49 @@
 </template>
 
 <script setup lang="ts" name="PageBack">
-import { useAttrs } from 'vue'
-import { useRouter } from 'vue-router'
+  import { useAttrs } from 'vue'
+  import { useRouter } from 'vue-router'
 
-const attrs = useAttrs()
-const router = useRouter()
-const emit = defineEmits<{
-  (event: 'goBack'): void
-}>()
-defineProps<{
-  text: string
-}>()
+  const attrs = useAttrs()
+  const router = useRouter()
+  const emit = defineEmits<{
+    (event: 'goBack'): void
+  }>()
+  defineProps<{
+    text: string
+  }>()
 
-const goBack = () => {
-  if (!attrs.goBack || typeof attrs.goBack !== 'function') {
-    router.back()
-  } else {
-    emit('goBack')
+  const goBack = () => {
+    if (!attrs.goBack || typeof attrs.goBack !== 'function') {
+      router.back()
+    } else {
+      emit('goBack')
+    }
   }
-}
 </script>
 
 <style scoped lang="scss">
-.page-back {
-  .page-back-inner {
-    i {
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    span {
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    &:hover {
+  .page-back {
+    .page-back-inner {
       i {
-        color: $mainColor;
+        font-size: 18px;
+        cursor: pointer;
       }
 
       span {
-        color: $mainColor;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      &:hover {
+        i {
+          color: $mainColor;
+        }
+
+        span {
+          color: $mainColor;
+        }
       }
     }
   }
-}
 </style>
