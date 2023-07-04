@@ -9,6 +9,7 @@ import { setupComponents } from '@/components'
 import { setupSvg } from '@/assets/icons'
 import { setupElementPlus } from '@/components/element-plus'
 import { directivesCb } from '@/directives'
+import { filtersCb } from '@/filters'
 
 import '@/styles/index.scss'
 
@@ -17,6 +18,7 @@ const init = async () => {
 
   if (!window.__POWERED_BY_QIANKUN__) {
     directivesCb(app)
+    filtersCb(app)
   }
 
   // 加载菜单权限
